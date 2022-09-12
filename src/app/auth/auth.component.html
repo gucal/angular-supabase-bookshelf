@@ -1,1 +1,53 @@
-<div>login page</div>
+<div class="w-full flex justify-content-center align-items-center pt-8">
+  <form
+    class="w-full flex justify-content-center"
+    [formGroup]="authForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div
+      class="flex flex-column align-items-center w-full justify-content-center border-round-md bg-white p-3 shadow lg:w-3"
+    >
+      <div class="field">
+        <img src="assets/images/book-image.png" width="120" height="120" />
+      </div>
+      <div class="field">
+        <span class="font-semibold text-800 text-4xl">Sign in</span>
+      </div>
+      <div class="field w-full">
+        <label for="email" class="block">E-mail</label>
+        <input
+          required
+          formControlName="email"
+          id="email"
+          type="email"
+          aria-describedby="email-help"
+          class="w-full"
+          pInputText
+        />
+      </div>
+      <div class="field w-full">
+        <label for="password" class="block">Password</label>
+        <input
+          required
+          formControlName="password"
+          id="password"
+          type="password"
+          aria-describedby="password-help"
+          class="w-full"
+          pInputText
+        />
+      </div>
+      <div class="field w-full">
+        <label for="password" class="block"></label>
+        <button
+          [disabled]="authForm.status === 'INVALID'"
+          id="password"
+          label="Login"
+          class="w-full"
+          type="submit"
+          pButton
+        ></button>
+      </div>
+    </div>
+  </form>
+</div>
