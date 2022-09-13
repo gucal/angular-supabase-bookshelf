@@ -15,8 +15,8 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home' },
-      { label: 'Add Book', icon: 'pi pi-fw pi-plus' },
-      { label: 'List Book', icon: 'pi pi-fw pi-file' },
+      { label: 'Add Book', icon: 'pi pi-fw pi-plus', routerLink: '/add' },
+      { label: 'List Book', icon: 'pi pi-fw pi-file', routerLink: '/list' },
       { label: 'Logout', icon: 'pi pi-fw pi-cog', routerLink: '/auth' },
     ];
   }

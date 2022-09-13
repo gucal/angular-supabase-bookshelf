@@ -5,7 +5,7 @@
     <div class="w-full">
       <form>
         <div class="field w-full">
-          <label for="name" class="block">Book Name</label>
+          <label for="name" class="block">Name</label>
           <input
             id="name"
             type="name"
@@ -15,7 +15,7 @@
           />
         </div>
         <div class="field w-full">
-          <label for="name" class="block">Owner</label>
+          <label for="name" class="block">Author</label>
           <input
             id="name"
             type="name"
@@ -23,6 +23,10 @@
             pInputText
             class="w-full"
           />
+        </div>
+        <div class="field w-full">
+          <label for="name" class="block">Description</label>
+          <textarea pInputTextarea class="w-full" rows="3"></textarea>
         </div>
         <div class="field w-full">
           <label for="name" class="block">Category</label>
@@ -33,6 +37,16 @@
             class="w-full"
             styleClass="w-full"
           ></p-dropdown>
+        </div>
+        <div class="field w-full">
+          <label for="name" class="block">Year</label>
+          <p-calendar
+            view="year"
+            dateFormat="yy"
+            inputId="yearpicker"
+            class="w-full"
+            styleClass="w-full"
+          ></p-calendar>
         </div>
         <div class="field w-full">
           <button pButton class="w-full" label="Create Book"></button>
