@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { LayoutComponent } from './layout.component';
 
+import { MenubarModule } from 'primeng/menubar';
+import { TableComponent } from '../table/table.component';
+
 @NgModule({
-  declarations: [LayoutComponent],
-  imports: [CommonModule],
+  declarations: [LayoutComponent, TableComponent],
+  imports: [CommonModule, MenubarModule],
   exports: [LayoutComponent],
 })
 export class LayoutModule {}

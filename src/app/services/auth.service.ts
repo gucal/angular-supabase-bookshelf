@@ -7,6 +7,6 @@ export class AuthService {
   constructor() {}
 
   login() {
-    return false;
+    return true;
   }
 }
