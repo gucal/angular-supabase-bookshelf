@@ -29,4 +29,8 @@ export class SupabaseService {
     if (verifiedPassword === password) return true;
     else return false;
   }
+
+  async getCategories() {
+    return await this.supabase.from('categories').select('*');
+  }
 }

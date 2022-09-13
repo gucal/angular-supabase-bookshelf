@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from '../services/categories.service';
 
 interface Category {
   id: number;
@@ -11,20 +12,13 @@ interface Category {
   styleUrls: ['./add-book.component.css'],
 })
 export class AddBookComponent implements OnInit {
-  categories: Category[] = [
-    {
-      id: 1,
-      name: 'Gerilim',
-    },
-    {
-      id: 2,
-      name: 'Korku',
-    },
-  ];
+  categories: Category[] | any;
 
-  constructor() {}
+  constructor(private categoryService: CategoriesService) {}
 
-  ngOnInit(): void {}
+  async ngOnInit() {
+    this.categories = await this.categoryService.getCategories();
+  }
 
   selectCategoryID?: Category;
 }
