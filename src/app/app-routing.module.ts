@@ -3,14 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddBookComponent } from './add-book/add-book.component';
 import { AuthComponent } from './auth/auth.component';
 import { LayoutComponent } from './layout/layout.component';
-import { LoginGuard } from './login.guard';
 import { TableComponent } from './table/table.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [LoginGuard],
     children: [
       { path: 'list', component: TableComponent },
       { path: 'add', component: AddBookComponent },

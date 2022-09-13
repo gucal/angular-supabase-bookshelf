@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
+import { SupabaseService } from './supabase.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
+  constructor(private supabase: SupabaseService) {}
 
-  login() {
-    return true;
+  async login(email: string, password: string) {
+    const isLogin: any = await this.supabase.authControl(email, password);
+
+    if (isLogin) {
+      alert('basarili');
+    } else alert('basarisiz');
   }
 }

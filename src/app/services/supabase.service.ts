@@ -15,18 +15,18 @@ export class SupabaseService {
     );
   }
 
-  async getUsers(email: string, password: string) {
+  async authControl(email: string, password: string) {
     let currentUser = await this.supabase
       .from('users')
       .select('email, password')
       .eq('email', email)
       .single();
 
-    if (currentUser.error) return alert('Boyle bir kayit yok!');
+    if (currentUser.error) return false;
 
     let verifiedPassword = currentUser.data.password;
 
-    if (verifiedPassword === password) return alert('Giris basarili!');
-    else return alert('E-posta ya da sifre yanlis!');
+    if (verifiedPassword === password) return true;
+    else return false;
   }
 }

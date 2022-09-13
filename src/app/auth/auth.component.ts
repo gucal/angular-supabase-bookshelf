@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SupabaseService } from '../services/supabase.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +10,8 @@ import { SupabaseService } from '../services/supabase.service';
 export class AuthComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private supabase: SupabaseService
+
+    private auth: AuthService
   ) {}
 
   authForm = this.formBuilder.group({
@@ -24,7 +25,7 @@ export class AuthComponent implements OnInit {
     const email = this.authForm.value.email || '';
     const password = this.authForm.value.password || '';
 
-    this.supabase.getUsers(email, password);
+    this.auth.login(email, password);
 
     this.authForm.reset();
   }
