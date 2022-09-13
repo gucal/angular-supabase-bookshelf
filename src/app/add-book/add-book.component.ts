@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { CategoriesService } from '../services/categories.service';
+import * as dayjs from 'dayjs';
 
 interface Category {
   id: number;
@@ -14,11 +16,25 @@ interface Category {
 export class AddBookComponent implements OnInit {
   categories: Category[] | any;
 
-  constructor(private categoryService: CategoriesService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private categoryService: CategoriesService
+  ) {}
+
+  bookForm = this.formBuilder.group({
+    name: '',
+    author: '',
+    description: '',
+    category: '',
+    year: '',
+  });
 
   async ngOnInit() {
     this.categories = await this.categoryService.getCategories();
   }
 
-  selectCategoryID?: Category;
+  createBook() {
+    this.bookForm.value.year = dayjs(this.bookForm.value.year).format('YYYY');
+    console.log(this.bookForm.value);
+  }
 }

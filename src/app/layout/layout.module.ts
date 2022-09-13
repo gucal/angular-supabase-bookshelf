@@ -11,7 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 
@@ -20,6 +20,7 @@ import { CalendarModule } from 'primeng/calendar';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     CalendarModule,
     BrowserAnimationsModule,
     MenubarModule,

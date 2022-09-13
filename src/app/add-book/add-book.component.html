@@ -3,53 +3,67 @@
     class="flex justify-content-center shadow p-4 border-round-lg w-full lg:w-5"
   >
     <div class="w-full">
-      <form>
+      <form [formGroup]="bookForm" (ngSubmit)="createBook()">
         <div class="field w-full">
           <label for="name" class="block">Name</label>
           <input
             id="name"
             type="name"
+            formControlName="name"
             aria-describedby="name-help"
             pInputText
             class="w-full"
           />
         </div>
         <div class="field w-full">
-          <label for="name" class="block">Author</label>
+          <label for="author" class="block">Author</label>
           <input
-            id="name"
+            id="author"
             type="name"
-            aria-describedby="name-help"
+            formControlName="author"
+            aria-describedby="author-help"
             pInputText
             class="w-full"
           />
         </div>
         <div class="field w-full">
-          <label for="name" class="block">Description</label>
-          <textarea pInputTextarea class="w-full" rows="3"></textarea>
+          <label for="description" class="block">Description</label>
+          <textarea
+            formControlName="description"
+            pInputTextarea
+            class="w-full"
+            rows="3"
+          ></textarea>
         </div>
         <div class="field w-full">
-          <label for="name" class="block">Category</label>
+          <label for="category" class="block">Category</label>
           <p-dropdown
             [options]="categories"
             placeholder="Select a Category"
             optionLabel="name"
+            formControlName="category"
             class="w-full"
             styleClass="w-full"
           ></p-dropdown>
         </div>
         <div class="field w-full">
-          <label for="name" class="block">Year</label>
+          <label for="year" class="block">Year</label>
           <p-calendar
             view="year"
             dateFormat="yy"
+            formControlName="year"
             inputId="yearpicker"
             class="w-full"
             styleClass="w-full"
           ></p-calendar>
         </div>
         <div class="field w-full">
-          <button pButton class="w-full" label="Create Book"></button>
+          <button
+            pButton
+            class="w-full"
+            label="Create Book"
+            type="submit"
+          ></button>
         </div>
       </form>
     </div>
