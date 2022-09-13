@@ -33,4 +33,8 @@ export class SupabaseService {
   async getCategories() {
     return await this.supabase.from('categories').select('*');
   }
+
+  async getBooks() {
+    return await this.supabase.from('books').select('*, categories (name)');
+  }
 }
