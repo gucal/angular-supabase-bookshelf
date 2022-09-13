@@ -1,1 +1,16 @@
-<div>table</div>
+<p-table [value]="products" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="pl-5">Code</th>
+      <th>Name</th>
+      <th class="pr-5">Category</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td class="pl-5">{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td class="pr-5">{{ product.category }}</td>
+    </tr>
+  </ng-template>
+</p-table>
