@@ -1,1 +1,43 @@
-<p>add-book works!</p>
+<div class="flex justify-content-center">
+  <div
+    class="flex justify-content-center shadow p-4 border-round-lg w-full lg:w-5"
+  >
+    <div class="w-full">
+      <form>
+        <div class="field w-full">
+          <label for="name" class="block">Book Name</label>
+          <input
+            id="name"
+            type="name"
+            aria-describedby="name-help"
+            pInputText
+            class="w-full"
+          />
+        </div>
+        <div class="field w-full">
+          <label for="name" class="block">Owner</label>
+          <input
+            id="name"
+            type="name"
+            aria-describedby="name-help"
+            pInputText
+            class="w-full"
+          />
+        </div>
+        <div class="field w-full">
+          <label for="name" class="block">Category</label>
+          <p-dropdown
+            [options]="categories"
+            placeholder="Select a Category"
+            optionLabel="name"
+            class="w-full"
+            styleClass="w-full"
+          ></p-dropdown>
+        </div>
+        <div class="field w-full">
+          <button pButton class="w-full" label="Create Book"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
