@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-auth',
@@ -12,7 +8,10 @@ import {
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private supabase: SupabaseService
+  ) {}
 
   authForm = this.formBuilder.group({
     email: ['', Validators.required],
@@ -21,7 +20,12 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
+  onSubmit() {
+    const email = this.authForm.value.email || '';
+    const password = this.authForm.value.password || '';
+
+    this.supabase.getUsers(email, password);
+
     this.authForm.reset();
   }
 }
