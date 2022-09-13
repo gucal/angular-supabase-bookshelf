@@ -1,4 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../services/book.service';
+
+interface Book {
+  id: number;
+  name: string;
+  author: string;
+  category_id: number;
+  description: string;
+  year: number;
+  categories: { name: string };
+}
 
 @Component({
   selector: 'app-table',
@@ -6,15 +17,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  constructor() {}
+  constructor(private book: BookService) {}
 
-  products: any = [
-    {
-      name: 'Ali',
-      code: 'Riza',
-      category: 'Gucal',
-    },
-  ];
+  books?: Book[] | any;
 
-  ngOnInit(): void {}
+  async ngOnInit() {
+    let bookList = await this.book.getBooks();
+    this.books = bookList;
+  }
 }
