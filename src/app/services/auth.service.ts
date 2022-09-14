@@ -12,6 +12,7 @@ export class AuthService {
     const isLogin: any = await this.supabase.authControl(email, password);
 
     if (isLogin) {
+      localStorage.setItem('isLogin', 'true');
       this.router.navigate(['/list']);
     } else alert('Error!');
   }

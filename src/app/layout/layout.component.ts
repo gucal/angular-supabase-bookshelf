@@ -16,7 +16,12 @@ export class LayoutComponent implements OnInit {
     this.items = [
       { label: 'List Book', icon: 'pi pi-fw pi-file', routerLink: '/list' },
       { label: 'Add Book', icon: 'pi pi-fw pi-plus', routerLink: '/add' },
-      { label: 'Logout', icon: 'pi pi-fw pi-cog', routerLink: '/auth' },
+      {
+        label: 'Logout',
+        icon: 'pi pi-fw pi-cog',
+        routerLink: '/auth',
+        command: () => localStorage.removeItem('isLogin'),
+      },
     ];
   }
 }
