@@ -47,4 +47,12 @@ export class SupabaseService {
   async createBook(data: object) {
     return await this.supabase.from('books').insert({ ...data });
   }
+
+  async uploadImage(filePath: string, file: File) {
+    this.supabase.auth.setAuth(
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bHVvbHJ3YW5jd2lxamVlcnRvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2Mjk2NDAxNywiZXhwIjoxOTc4NTQwMDE3fQ.paP1noIZyM9rZ6JTAU-DI1HBCJobI4J3NisDQye94cY'
+    );
+
+    return await this.supabase.storage.from('images').upload(filePath, file);
+  }
 }

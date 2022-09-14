@@ -38,4 +38,9 @@ export class AddBookComponent implements OnInit {
     this.supabase.createBook(this.bookForm.value);
     this.bookForm.reset();
   }
+
+  onUpload(event: any) {
+    const file = event.files[0];
+    this.supabase.uploadImage('/books/1', file);
+  }
 }

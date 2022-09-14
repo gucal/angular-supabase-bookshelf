@@ -5,6 +5,16 @@
     <div class="w-full">
       <form [formGroup]="bookForm" (ngSubmit)="createBook()">
         <div class="field w-full">
+          <p-fileUpload
+            mode="basic"
+            name="image"
+            accept="image/*"
+            [customUpload]="true"
+            [multiple]="false"
+            (uploadHandler)="onUpload($event)"
+          ></p-fileUpload>
+        </div>
+        <div class="field w-full">
           <label for="name" class="block">Name</label>
           <input
             id="name"
