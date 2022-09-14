@@ -37,4 +37,8 @@ export class SupabaseService {
   async getBooks() {
     return await this.supabase.from('books').select('*, categories (name)');
   }
+
+  async createBook(data: object) {
+    return await this.supabase.from('books').insert({ ...data });
+  }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { CategoriesService } from '../services/categories.service';
 import * as dayjs from 'dayjs';
+import { SupabaseService } from '../services/supabase.service';
 
 interface Category {
   id: number;
@@ -18,15 +19,16 @@ export class AddBookComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private categoryService: CategoriesService
+    private categoryService: CategoriesService,
+    private supabaseService: SupabaseService
   ) {}
 
   bookForm = this.formBuilder.group({
-    name: '',
-    author: '',
-    description: '',
-    category: '',
-    year: '',
+    name: ['', Validators.required],
+    author: ['', Validators.required],
+    description: ['', Validators.required],
+    category_id: ['', Validators.required],
+    year: ['', Validators.required],
   });
 
   async ngOnInit() {
@@ -35,6 +37,6 @@ export class AddBookComponent implements OnInit {
 
   createBook() {
     this.bookForm.value.year = dayjs(this.bookForm.value.year).format('YYYY');
-    console.log(this.bookForm.value);
+    this.supabaseService.createBook(this.bookForm.value);
   }
 }

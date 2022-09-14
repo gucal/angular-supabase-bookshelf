@@ -41,9 +41,10 @@
             [options]="categories"
             placeholder="Select a Category"
             optionLabel="name"
-            formControlName="category"
+            formControlName="category_id"
             class="w-full"
             styleClass="w-full"
+            optionValue="id"
           ></p-dropdown>
         </div>
         <div class="field w-full">
@@ -59,6 +60,7 @@
         </div>
         <div class="field w-full">
           <button
+            [disabled]="bookForm.status === 'INVALID'"
             pButton
             class="w-full"
             label="Create Book"
