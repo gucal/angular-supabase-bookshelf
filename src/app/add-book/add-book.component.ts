@@ -16,6 +16,8 @@ interface Category {
 export class AddBookComponent implements OnInit {
   categories: Category[] | any;
 
+  currentImage?: File | any;
+
   constructor(
     private formBuilder: FormBuilder,
     private supabase: SupabaseService
@@ -33,14 +35,14 @@ export class AddBookComponent implements OnInit {
     this.categories = await this.supabase.getCategories();
   }
 
-  createBook() {
+  async createBook() {
     this.bookForm.value.year = dayjs(this.bookForm.value.year).format('YYYY');
-    this.supabase.createBook(this.bookForm.value);
+    let data: any = await this.supabase.createBook(this.bookForm.value);
+    this.supabase.uploadImage(`/books/${data[0].id}`, this.currentImage);
     this.bookForm.reset();
   }
 
-  onUpload(event: any) {
-    const file = event.files[0];
-    this.supabase.uploadImage('/books/1', file);
+  uploadBefore(event: any) {
+    this.currentImage = event.currentFiles[0];
   }
 }

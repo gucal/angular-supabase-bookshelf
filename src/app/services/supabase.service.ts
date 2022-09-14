@@ -44,8 +44,9 @@ export class SupabaseService {
     return data;
   }
 
-  async createBook(data: object) {
-    return await this.supabase.from('books').insert({ ...data });
+  async createBook(values: object) {
+    let { data } = await this.supabase.from('books').insert({ ...values });
+    return data;
   }
 
   async uploadImage(filePath: string, file: File) {

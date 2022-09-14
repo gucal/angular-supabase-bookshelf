@@ -11,7 +11,7 @@
             accept="image/*"
             [customUpload]="true"
             [multiple]="false"
-            (uploadHandler)="onUpload($event)"
+            (onSelect)="uploadBefore($event)"
           ></p-fileUpload>
         </div>
         <div class="field w-full">
