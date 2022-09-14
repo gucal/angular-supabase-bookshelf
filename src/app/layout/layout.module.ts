@@ -14,6 +14,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
+import { CardModule } from 'primeng/card';
+import { TooltipModule } from 'primeng/tooltip';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [LayoutComponent, ListBookComponent, AddBookComponent],
@@ -29,6 +32,9 @@ import { CalendarModule } from 'primeng/calendar';
     InputTextareaModule,
     ButtonModule,
     DropdownModule,
+    CardModule,
+    TooltipModule,
+    TabViewModule,
   ],
   exports: [LayoutComponent],
 })

@@ -1,28 +1,66 @@
-<p-table
-  [value]="books"
-  styleClass="p-datatable-gridlines"
-  responsiveLayout="scroll"
->
-  <ng-template pTemplate="header">
-    <tr>
-      <th style="width: 15%" pSortableColumn="name">
-        Name <p-sortIcon field="name"></p-sortIcon>
-      </th>
-      <th style="width: 15%">Author</th>
-      <th style="width: 15%">Category</th>
-      <th style="width: 40%">Description</th>
-      <th style="width: 15%" pSortableColumn="year">
-        Year <p-sortIcon field="year"></p-sortIcon>
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-book>
-    <tr>
-      <td>{{ book.name }}</td>
-      <td>{{ book.author }}</td>
-      <td>{{ book.categories.name }}</td>
-      <td>{{ book.description }}</td>
-      <td>{{ book.year }}</td>
-    </tr>
-  </ng-template>
-</p-table>
+<p-tabView>
+  <p-tabPanel header="Card List">
+    <div class="grid">
+      <p-card
+        *ngFor="let book of books"
+        [header]="book.name"
+        [subheader]="book.author"
+        class="col lg:col-3"
+        styleClass="p-card-shadow"
+      >
+        <ng-template pTemplate="header">
+          <img
+            class="cursor-pointer"
+            alt="Card"
+            src="assets/showcase/images/usercard.png"
+          />
+        </ng-template>
+        <p
+          [pTooltip]="book.description"
+          class="text-overflow-ellipsis overflow-hidden"
+          style="
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+          "
+        >
+          {{ book.description }}
+        </p>
+        <ng-template pTemplate="footer">
+          <span class="font-medium text-800">Year: {{ book.year }} </span>
+        </ng-template>
+      </p-card>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="Table List">
+    <p-table
+      [value]="books"
+      styleClass="p-datatable-gridlines"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 15%" pSortableColumn="name">
+            Name <p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th style="width: 15%">Author</th>
+          <th style="width: 15%">Category</th>
+          <th style="width: 40%">Description</th>
+          <th style="width: 15%" pSortableColumn="year">
+            Year <p-sortIcon field="year"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-book>
+        <tr>
+          <td>{{ book.name }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.categories.name }}</td>
+          <td>{{ book.description }}</td>
+          <td>{{ book.year }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-tabPanel>
+</p-tabView>
