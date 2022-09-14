@@ -5,7 +5,7 @@ import { LayoutComponent } from './layout.component';
 
 import { MenubarModule } from 'primeng/menubar';
 import { TableModule } from 'primeng/table';
-import { TableComponent } from '../table/table.component';
+import { ListBookComponent } from '../list-book/list-book.component';
 import { AddBookComponent } from '../add-book/add-book.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
-  declarations: [LayoutComponent, TableComponent, AddBookComponent],
+  declarations: [LayoutComponent, ListBookComponent, AddBookComponent],
   imports: [
     CommonModule,
     FormsModule,

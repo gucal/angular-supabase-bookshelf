@@ -36,5 +36,6 @@ export class AddBookComponent implements OnInit {
   createBook() {
     this.bookForm.value.year = dayjs(this.bookForm.value.year).format('YYYY');
     this.supabase.createBook(this.bookForm.value);
+    this.bookForm.reset();
   }
 }

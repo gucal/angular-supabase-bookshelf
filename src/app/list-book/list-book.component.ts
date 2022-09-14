@@ -13,11 +13,11 @@ interface Book {
 }
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
+  selector: 'app-list-book',
+  templateUrl: './list-book.component.html',
+  styleUrls: ['./list-book.component.css'],
 })
-export class TableComponent implements OnInit {
+export class ListBookComponent implements OnInit {
   constructor(private supabase: SupabaseService) {}
 
   books?: Book[] | any;
