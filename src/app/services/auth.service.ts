@@ -13,6 +13,6 @@ export class AuthService {
 
     if (isLogin) {
       this.router.navigate(['/list']);
-    } else alert('basarisiz');
+    } else alert('Error!');
   }
 }

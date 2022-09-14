@@ -31,11 +31,17 @@ export class SupabaseService {
   }
 
   async getCategories() {
-    return await this.supabase.from('categories').select('*');
+    let { data } = await this.supabase.from('categories').select('*');
+
+    return data;
   }
 
   async getBooks() {
-    return await this.supabase.from('books').select('*, categories (name)');
+    let { data } = await this.supabase
+      .from('books')
+      .select('*, categories (name)');
+
+    return data;
   }
 
   async createBook(data: object) {

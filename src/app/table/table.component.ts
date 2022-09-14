@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../services/book.service';
+
+import { SupabaseService } from '../services/supabase.service';
 
 interface Book {
   id: number;
@@ -17,12 +18,12 @@ interface Book {
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  constructor(private book: BookService) {}
+  constructor(private supabase: SupabaseService) {}
 
   books?: Book[] | any;
 
   async ngOnInit() {
-    let bookList = await this.book.getBooks();
+    let bookList = await this.supabase.getBooks();
     this.books = bookList;
   }
 }
