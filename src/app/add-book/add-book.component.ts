@@ -36,6 +36,9 @@ export class AddBookComponent implements OnInit {
   }
 
   async createBook() {
+    if (!this.currentImage) {
+      return alert('Image required!');
+    }
     this.bookForm.value.year = dayjs(this.bookForm.value.year).format('YYYY');
     let data: any = await this.supabase.createBook(this.bookForm.value);
     this.supabase.uploadImage(`/books/${data[0].id}`, this.currentImage);
