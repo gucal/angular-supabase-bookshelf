@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddBookComponent } from './add-book/add-book.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthenticationGuard } from './authentication.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { ListBookComponent } from './list-book/list-book.component';
 import { LoginGuard } from './login.guard';
@@ -16,7 +17,11 @@ const routes: Routes = [
       { path: 'add', component: AddBookComponent },
     ],
   },
-  { path: 'auth', component: AuthComponent },
+  {
+    path: 'auth',
+    component: AuthComponent,
+    canActivate: [AuthenticationGuard],
+  },
 ];
 
 @NgModule({
