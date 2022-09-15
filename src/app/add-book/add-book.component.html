@@ -2,10 +2,12 @@
   <div
     class="flex justify-content-center shadow p-4 border-round-lg w-full m-3 lg:w-5"
   >
+    <p-toast></p-toast>
     <div class="w-full">
-      <form [formGroup]="bookForm" (ngSubmit)="createBook()">
+      <form [formGroup]="bookForm" (ngSubmit)="createBook(fileUpload)">
         <div class="field w-full">
           <p-fileUpload
+            #fileUpload
             mode="basic"
             name="image"
             accept="image/*"

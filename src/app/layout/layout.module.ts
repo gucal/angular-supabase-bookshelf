@@ -19,6 +19,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { TabViewModule } from 'primeng/tabview';
 import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [LayoutComponent, ListBookComponent, AddBookComponent],
@@ -39,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     TabViewModule,
     FileUploadModule,
     HttpClientModule,
+    ToastModule,
   ],
   exports: [LayoutComponent],
 })
