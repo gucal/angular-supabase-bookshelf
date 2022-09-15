@@ -14,11 +14,11 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      { label: 'List Book', icon: 'pi pi-fw pi-file', routerLink: '/list' },
-      { label: 'Add Book', icon: 'pi pi-fw pi-plus', routerLink: '/add' },
+      { label: 'List Book', icon: 'pi pi-fw pi-list', routerLink: '/list' },
+      { label: 'Add Book', icon: 'pi pi-fw pi-plus-circle', routerLink: '/add' },
       {
         label: 'Logout',
-        icon: 'pi pi-fw pi-cog',
+        icon: 'pi pi-fw pi-power-off',
         routerLink: '/auth',
         command: () => localStorage.removeItem('isLogin'),
       },
